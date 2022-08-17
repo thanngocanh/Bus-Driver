@@ -3,6 +3,7 @@
 
 package entity;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class BusLine implements Inputable {
@@ -13,6 +14,12 @@ public class BusLine implements Inputable {
 
     protected String distance;
     protected int busStop;
+
+    public BusLine(int busLineID, String distance, int busStop) {
+        this.busLineID = BusLine.AUTO_ID++;
+        this.distance = distance;
+        this.busStop = busStop;
+    }
 
     public int getBusLineID() {
         return busLineID;
@@ -38,6 +45,7 @@ public class BusLine implements Inputable {
         this.busStop = busStop;
     }
 
+
     @Override
     public String toString() {
         return "BusLine{" +
@@ -49,10 +57,25 @@ public class BusLine implements Inputable {
 
     @Override
     public void inputInfo() {
-        this.busLineID = BusLine.AUTO_ID++;
         System.out.println("Mời nhập khoảng cách các tuyến: ");
         this.setDistance(new Scanner(System.in).nextLine());
         System.out.println("Mời nhập số điểm dừng: ");
         this.setBusStop(new Scanner(System.in).nextInt());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BusLine)) return false;
+        BusLine busLine = (BusLine) o;
+        return getBusLineID() == busLine.getBusLineID() &&
+                getBusStop() == busLine.getBusStop() &&
+                getDistance().equals(busLine.getDistance());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBusLineID(), getDistance(), getBusStop());
+    }
+
 }

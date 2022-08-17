@@ -2,6 +2,7 @@
 
 package entity;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class Person implements Inputable {
@@ -52,5 +53,18 @@ public abstract class Person implements Inputable {
         this.setDriverAddress(new Scanner(System.in).nextLine());
         System.out.println("Mời nhập số điện thoại: ");
         this.setDriverPhoneNumber(new Scanner(System.in).nextLine());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getDriverId() == person.getDriverId() && getDriverName().equals(person.getDriverName()) && getDriverAddress().equals(person.getDriverAddress()) && getDriverPhoneNumber().equals(person.getDriverPhoneNumber());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDriverId(), getDriverName(), getDriverAddress(), getDriverPhoneNumber());
     }
 }

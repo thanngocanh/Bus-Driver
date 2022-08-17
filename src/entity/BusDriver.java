@@ -6,13 +6,12 @@ import constant.DrivingSkill;
 
 import java.util.Scanner;
 
-public class BusDriver extends Person implements Comparable<BusDriver> {
+public class BusDriver extends Person {
 
     private static int AUTO_ID = 10000;
 
     private DrivingSkill drivingSkill;
 
-    //get and set
     public DrivingSkill getDrivingSkill() {
         return drivingSkill;
     }
@@ -21,7 +20,6 @@ public class BusDriver extends Person implements Comparable<BusDriver> {
         this.drivingSkill = drivingSkill;
     }
 
-    //constructor
     public BusDriver(DrivingSkill drivingSkill) {
         this.drivingSkill = drivingSkill;
     }
@@ -85,15 +83,5 @@ public class BusDriver extends Person implements Comparable<BusDriver> {
                 this.setDrivingSkill(DrivingSkill.F);
                 break;
         }
-    }
-
-    @Override
-    public int compareTo(BusDriver busDriver) {
-        if (this.driverId > busDriver.getDriverId()) {
-            return 1;
-        } else if (this.driverId < busDriver.getDriverId()) {
-            return -1;
-        }
-        return 0;
     }
 }
