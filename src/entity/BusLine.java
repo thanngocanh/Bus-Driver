@@ -3,6 +3,8 @@
 
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,6 +16,8 @@ public class BusLine implements Inputable {
 
     protected String distance;
     protected int busStop;
+
+    List<Turns> turns = new ArrayList<>();
 
     public BusLine(int busLineID, String distance, int busStop) {
         this.busLineID = BusLine.AUTO_ID++;
@@ -45,6 +49,13 @@ public class BusLine implements Inputable {
         this.busStop = busStop;
     }
 
+    public List<Turns> getTurns() {
+        return turns;
+    }
+
+    public void setTurns(List<Turns> turns) {
+        this.turns = turns;
+    }
 
     @Override
     public String toString() {

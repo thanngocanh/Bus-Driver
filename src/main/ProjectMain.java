@@ -1,5 +1,7 @@
 package main;
 
+import logic_handle.BusDriverService;
+
 import java.util.Scanner;
 
 public class ProjectMain {
@@ -13,7 +15,7 @@ public class ProjectMain {
             int functionChoice = functionChoice();
             switch (functionChoice) {
                 case 1: //Thêm danh sách tài xế mới
-
+                    BusDriverService.inputNewBusDriver();
 
                     break;
                 case 2: //In ra danh sách tài xế

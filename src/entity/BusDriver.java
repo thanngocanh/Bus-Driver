@@ -12,6 +12,14 @@ public class BusDriver extends Person {
 
     private DrivingSkill drivingSkill;
 
+    public BusDriver(String name, String address, String phone) {
+        super();
+        this.driverId = AUTO_ID++;
+        this.driverName = name;
+        this.driverAddress = address;
+        this.driverPhoneNumber = phone;
+    }
+
     public DrivingSkill getDrivingSkill() {
         return drivingSkill;
     }
@@ -20,9 +28,6 @@ public class BusDriver extends Person {
         this.drivingSkill = drivingSkill;
     }
 
-    public BusDriver(DrivingSkill drivingSkill) {
-        this.drivingSkill = drivingSkill;
-    }
 
     @Override
     public String toString() {
