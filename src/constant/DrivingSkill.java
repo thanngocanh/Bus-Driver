@@ -3,12 +3,12 @@
 package constant;
 
 public enum DrivingSkill {
-    A("Skill level A - MASTER"),
-    B("Skill level B - EXPERT"),
-    C("Skill level C - PROFESSIONAL"),
-    D("Skill level D - ADVANCED"),
-    E("Skill level E - INTERMEDIATE"),
-    F("Skill level F - BEGINNER");
+    A_MASTER_BACTHAY("Skill level A - MASTER [BẬC THẦY] "),
+    B_EXPERT_CHUYENGIA("Skill level B - EXPERT [CHUYÊN GIA] "),
+    C_PROFESSIONAL_NHANGHE("Skill level C - PROFESSIONAL [NHÀ NGHỀ] "),
+    D_ADVANCED_THANHTHAO("Skill level D - ADVANCED [THÀNH THẠO] "),
+    E_INTERMEDIATE_PHOTHONG("Skill level E - INTERMEDIATE [PHỔ THÔNG] "),
+    F_BEGINNER_NHAPMON("Skill level F - BEGINNER [NHẬP MÔN] ");
 
     public String value;
 

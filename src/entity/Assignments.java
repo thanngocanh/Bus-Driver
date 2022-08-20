@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Assignments {
 
+
     private BusDriver busDriver;
     List<BusLine> busLineList = new ArrayList<>();
 
-    public Assignments(BusDriver busDriver, List<BusLine> busLineList) {
+    public Assignments(BusDriver busDriver) {
         this.busDriver = busDriver;
-        this.busLineList = busLineList;
     }
 
     public BusDriver getBusDriver() {

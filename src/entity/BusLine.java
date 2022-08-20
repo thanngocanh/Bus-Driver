@@ -2,27 +2,21 @@
 // mã tuyến là một số nguyên có 3 chữ số, tự động tăng.
 
 package entity;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
-public class BusLine implements Inputable {
+public class BusLine {
 
     private static int AUTO_ID = 100;
 
     protected int busLineID;
 
-    protected String distance;
+    protected int distance;
     protected int busStop;
 
-    List<Turns> turns = new ArrayList<>();
-
-    public BusLine(int busLineID, String distance, int busStop) {
+    public BusLine(int distance, int busStop) {
         this.busLineID = BusLine.AUTO_ID++;
-        this.distance = distance;
         this.busStop = busStop;
+        this.distance = distance;
     }
 
     public int getBusLineID() {
@@ -33,11 +27,11 @@ public class BusLine implements Inputable {
         this.busLineID = busLineID;
     }
 
-    public String getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
@@ -49,29 +43,13 @@ public class BusLine implements Inputable {
         this.busStop = busStop;
     }
 
-    public List<Turns> getTurns() {
-        return turns;
-    }
-
-    public void setTurns(List<Turns> turns) {
-        this.turns = turns;
-    }
-
     @Override
     public String toString() {
-        return "BusLine{" +
-                "busLineID=" + busLineID +
-                ", distance='" + distance + '\'' +
-                ", busStop=" + busStop +
-                '}';
-    }
-
-    @Override
-    public void inputInfo() {
-        System.out.println("Mời nhập khoảng cách các tuyến: ");
-        this.setDistance(new Scanner(System.in).nextLine());
-        System.out.println("Mời nhập số điểm dừng: ");
-        this.setBusStop(new Scanner(System.in).nextInt());
+        System.out.println("\n　<< THÔNG TIN TUYẾN XE BUÝT _ " + busLineID + " _ >>" + '\n');
+        System.out.println("∥　[1] MÃ TUYẾN     : --≫　【　 " + busLineID + " 　】\n" +
+                "∥　[2] KHOẢNG CÁCH  : --≫　【　 " + distance + " m　　】\n" +
+                "∥　[3] SỐ ĐIỂM DỪNG : --≫　【　 " + busStop + "　　】\n");
+        return "";
     }
 
     @Override
@@ -79,9 +57,7 @@ public class BusLine implements Inputable {
         if (this == o) return true;
         if (!(o instanceof BusLine)) return false;
         BusLine busLine = (BusLine) o;
-        return getBusLineID() == busLine.getBusLineID() &&
-                getBusStop() == busLine.getBusStop() &&
-                getDistance().equals(busLine.getDistance());
+        return getBusLineID() == busLine.getBusLineID() && getDistance() == busLine.getDistance() && getBusStop() == busLine.getBusStop();
     }
 
     @Override
