@@ -3,7 +3,9 @@
 package entity;
 
 import constant.DrivingSkill;
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BusDriver extends Person {
@@ -31,7 +33,7 @@ public class BusDriver extends Person {
 
     @Override
     public String toString() {
-        System.out.println("\n　<< THÔNG TIN TÀI XẾ _ " + name + " _ >>" + '\n');
+        System.out.println("　<< THÔNG TIN TÀI XẾ _ " + name + " _ >>" + '\n');
         System.out.println("∥　[1] MÃ TÀI XẾ       : --≫　【　 " + id + " 　】\n" +
                     "∥　[2] TÊN TÀI XẾ      : --≫　【　 " + name + "　　】\n" +
                     "∥　[3] ĐỊA CHỈ         : --≫　【　 "  + address + "　　】\n" +
@@ -51,10 +53,17 @@ public class BusDriver extends Person {
 
         int skillChoice = 0;
         do {
-            skillChoice = new Scanner(System.in).nextInt();
-            if (skillChoice >= 1 && skillChoice <= 6) {
-                break;
+            try {
+                skillChoice = new Scanner(System.in).nextInt();
+            } catch (InputMismatchException exception) {
+                System.out.print("\nĐÃ XẢY RA LỖI! ĐỂ LỰA CHỌN TRÌNH ĐỘ LÁI XE CHỈ CHO PHÉP NHẬP <SỐ NGUYÊN> TỪ [1] ~ [6]!!! \n" +
+                        "Mời chọn lại: ");
+                continue;
             }
+                if (skillChoice >= 1 && skillChoice <= 6) {
+                    break;
+                } System.out.print("\nĐÃ XẢY RA LỖI! ĐỂ LỰA CHỌN TRÌNH ĐỘ LÁI XE CHỈ CHO PHÉP NHẬP <SỐ NGUYÊN> TỪ [1] ~ [6]!!! \n" +
+                    "Mời chọn lại: ");
         } while (true);
         switch (skillChoice) {
             case 1:

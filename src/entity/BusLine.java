@@ -2,6 +2,7 @@
 // mã tuyến là một số nguyên có 3 chữ số, tự động tăng.
 
 package entity;
+
 import java.util.Objects;
 
 public class BusLine {
