@@ -12,39 +12,57 @@ public class BusLineService {
     static List<BusLine> busLineList = new ArrayList<>();
 
     public static void inputNewBusLine() {
-        try {
-            System.out.println("Mời nhập số lượng tuyến xe mới: ");
-            int numberOfBusLine = new Scanner(System.in).nextInt();
-            if (numberOfBusLine <= 0) {
-                System.out.println("\nĐÃ XẢY RA LỖI! SỐ LƯỢNG TUYẾN XE PHẢI LỚN HƠN 0!!! \n" +
+        System.out.println("Mời nhập số tuyến xe buýt cần thêm: ");
+        int numberOfBusLine = 0;
+        do {
+            try {
+                numberOfBusLine = new Scanner(System.in).nextInt();
+            } catch (InputMismatchException exception) {
+                System.out.println("\nĐÃ XẢY RA LỖI! SỐ TUYẾN CẦN NHẬP CHỈ CHO PHÉP LÀ SỐ NGUYÊN THÔI!!! \n" +
+                        "Mời nhập lại: ");
+                continue;
+            }
+            if (numberOfBusLine > 0) {
+                break;
+            }
+            System.out.println("\nĐÃ XẢY RA LỖI! SỐ TUYẾN PHẢI LỚN HƠN 0!!! \n" +
+                    "Mời nhập lại: ");
+            inputNewBusLine();
+        } while (true);
+        for (int i = 0; i < numberOfBusLine; i++) {
+            System.out.println("Mời nhập khoảng cách (Tính theo đơn vị mét. VD: 700 m ): ");
+            int distance = 0;
+            try {
+                distance = new Scanner(System.in).nextInt();
+            } catch (InputMismatchException exception) {
+                System.out.println("\nĐÃ XẢY RA LỖI! KHOẢNG CÁCH CẦN NHẬP CHỈ CHO PHÉP LÀ SỐ NGUYÊN THÔI!!! \n" +
+                        "Mời nhập lại: ");
+                continue;
+            }
+            if (distance <= 0) {
+                System.out.println("\nĐÃ XẢY RA LỖI! KHOẢNG CÁCH PHẢI LỚN HƠN 0!!! \n" +
                         "Phải nhập lại rồi!");
                 inputNewBusLine();
+
             } else {
-                for (int i = 0; i < numberOfBusLine; i++) {
-                    System.out.println("Mời nhập khoảng cách (Tính theo đơn vị mét. VD: 700 m ): ");
-                    int distance = new Scanner(System.in).nextInt();
-                    if (distance <= 0) {
-                        System.out.println("\nĐÃ XẢY RA LỖI! KHOẢNG CÁCH PHẢI LỚN HƠN 0!!! \n" +
-                                "Phải nhập lại rồi!");
-                        inputNewBusLine();
-                    } else {
-                        System.out.println("Mời nhập số lượng điểm dừng: ");
-                        int busStop = new Scanner(System.in).nextInt();
-                        if (busStop <= 0) {
-                            System.out.println("\nĐÃ XẢY RA LỖI! SỐ LƯỢNG ĐIỂM DỪNG PHẢI LỚN HƠN 0!!! \n" +
-                                    "Đến đây rồi còn phải nhập lại, tiếc quá!");
-                            inputNewBusLine();
-                        } else {
-                            BusLine busLine = new BusLine(distance, busStop);
-                            busLineList.add(busLine);
-                        }
-                    }
+                System.out.println("Mời nhập số lượng điểm dừng: ");
+                int busStop = 0;
+                try {
+                    busStop = new Scanner(System.in).nextInt();
+                } catch (InputMismatchException exception) {
+                    System.out.println("\nĐÃ XẢY RA LỖI! SỐ ĐIỂM DỪNG CẦN NHẬP CHỈ CHO PHÉP LÀ SÔ NGUYÊN THÔI!!! \n" +
+                            "Mời nhập lại: ");
+                    continue;
+                }
+                if (busStop <= 0) {
+                    System.out.println("\nĐÃ XẢY RA LỖI! SỐ ĐIỂM DỪNG PHẢI LỚN HƠN 0!!! \n" +
+                            "Đến đây rồi còn phải nhập lại, tiếc quá!");
+                    inputNewBusLine();
+                } else {
+                    BusLine busLine = new BusLine(distance, busStop);
+                    busLineList.add(busLine);
                 }
             }
-        } catch (InputMismatchException exception) {
-            System.out.println("\nĐÃ XẢY RA LỖI! <<SỐ LƯỢNG TUYẾN XE, KHOẢNG CÁCH, SỐ ĐIỂM DỪNG>> CHỈ CHO PHÉP NHẬP SỐ NGUYÊN THÔI!!! \n" +
-                    "Phải nhập lại rồi!");
-            inputNewBusLine();
         }
     }
 

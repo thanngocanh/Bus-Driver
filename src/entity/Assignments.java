@@ -1,24 +1,35 @@
+//Khai báo lớp Bảng phân công có quan hệ kết hợp với lớp Lái xe và lớp Tuyến. Trong đó một
 package entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Assignments {
 
-
-    private BusDriver busDriver;
+    List<BusDriver> busDriverList = new ArrayList<>();
     List<BusLine> busLineList = new ArrayList<>();
 
-    public Assignments(BusDriver busDriver) {
+    private BusDriver busDriver;
+    private BusLine busLines;
+    private int turnsNumber;
+
+
+    public Assignments(BusDriver busDriver, BusLine busLines, int turnsNumber) {
         this.busDriver = busDriver;
+        this.busLines = busLines;
+        this.turnsNumber = turnsNumber;
     }
 
-    public BusDriver getBusDriver() {
-        return busDriver;
+    public Assignments(String name, int id, int turnsNumber) {
     }
 
-    public void setBusDriver(BusDriver busDriver) {
-        this.busDriver = busDriver;
+    public List<BusDriver> getBusDriverList() {
+        return busDriverList;
+    }
+
+    public void setBusDriverList(List<BusDriver> busDriverList) {
+        this.busDriverList = busDriverList;
     }
 
     public List<BusLine> getBusLineList() {
@@ -29,13 +40,27 @@ public class Assignments {
         this.busLineList = busLineList;
     }
 
+    public BusDriver getBusDriver() {
+        return busDriver;
+    }
 
+    public void setBusDriver(BusDriver busDriver) {
+        this.busDriver = busDriver;
+    }
 
-    @Override
-    public String toString() {
-        return "Assignments{" +
-                "busDriver=" + busDriver +
-                ", busLineList=" + busLineList +
-                '}';
+    public BusLine getBusLines() {
+        return busLines;
+    }
+
+    public void setBusLines(BusLine busLines) {
+        this.busLines = busLines;
+    }
+
+    public int getTurnsNumber() {
+        return turnsNumber;
+    }
+
+    public void setTurnsNumber(int turnsNumber) {
+        this.turnsNumber = turnsNumber;
     }
 }

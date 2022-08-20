@@ -78,8 +78,7 @@ public class ProjectMain {
     }
 
     private static void showMenu() {
-        System.out.println("NGÀY MỚI TỐT LÀNH! Bắt đầu một ca làm việc mới nào!");
-        System.out.println("\n---------- PHẦN MỀM QUẢN LÝ PHÂN CÔNG LÁI XE BUÝT ------------");
+        System.out.println("\n\n---------- PHẦN MỀM QUẢN LÝ PHÂN CÔNG LÁI XE BUÝT ------------");
         System.out.println("1. Nhập danh sách tài xế mới.");
         System.out.println("2. Hiển thị danh sách tài xế hiện tại.");
         System.out.println("3. Nhập danh sách tuyến xe buýt mới.");
