@@ -92,7 +92,7 @@ public class AssignmentsService {
                                     }
                                     System.out.println("\nSỐ LƯỢT CHẠY MỖI NGÀY PHẢI LỚN HƠN 0 " +
                                             "VÀ KHÔNG ĐƯỢC VƯỢT QUÁ 15 LƯỢT!!! \n" +
-                                            "Phải nhập lại rồi!");
+                                            "Phải nhập lại rồi!!");
                                 } while (true);
                                 for (int k = 0; k < turnsNumber; k++) {
                                     BusLine busLine = BusLineService.findBusLine(id);
