@@ -36,8 +36,8 @@ public class BusLineService {
                 distance = new Scanner(System.in).nextInt();
             } catch (InputMismatchException exception) {
                 System.out.println("\nĐÃ XẢY RA LỖI! KHOẢNG CÁCH CẦN NHẬP CHỈ CHO PHÉP LÀ SỐ NGUYÊN THÔI!!! \n" +
-                        "Mời nhập lại: ");
-                continue;
+                        "Phải nhập lai rồi!");
+                inputNewBusLine();
             }
             if (distance <= 0) {
                 System.out.println("\nĐÃ XẢY RA LỖI! KHOẢNG CÁCH PHẢI LỚN HƠN 0!!! \n" +
@@ -51,8 +51,8 @@ public class BusLineService {
                     busStop = new Scanner(System.in).nextInt();
                 } catch (InputMismatchException exception) {
                     System.out.println("\nĐÃ XẢY RA LỖI! SỐ ĐIỂM DỪNG CẦN NHẬP CHỈ CHO PHÉP LÀ SÔ NGUYÊN THÔI!!! \n" +
-                            "Mời nhập lại: ");
-                    continue;
+                            "Phải nhập lại rồi!");
+                    inputNewBusLine();
                 }
                 if (busStop <= 0) {
                     System.out.println("\nĐÃ XẢY RA LỖI! SỐ ĐIỂM DỪNG PHẢI LỚN HƠN 0!!! \n" +

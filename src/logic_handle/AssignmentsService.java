@@ -43,7 +43,7 @@ public class AssignmentsService {
             for (int i = 0; i < busDriverNumber; i++) {
                 System.out.println("\nMời nhập tên tài xế: ");
                 String name = new Scanner(System.in).nextLine();
-                Set<String> driverNameList = busDriverList.stream().map(BusDriver::getName).collect(Collectors.toSet());
+                List<String> driverNameList = busDriverList.stream().map(BusDriver::getName).collect(Collectors.toList());
                 if (!driverNameList.contains(name)) {
                     System.out.println("\nTÊN TÀI XẾ VỪA NHẬP HIỆN KHÔNG TỒN TẠI TRONG DANH SÁCH!!! \n\n" +
                             " ----->> Mời chọn [1] để thêm danh sách tài xế. " +
@@ -71,7 +71,7 @@ public class AssignmentsService {
                             System.out.println("Mời nhập mã tuyến: ");
                             try {
                                 int id = new Scanner(System.in).nextInt();
-                                Set<Integer> busIDList = busLineList.stream().map(BusLine::getBusLineID).collect(Collectors.toSet());
+                                List<Integer> busIDList = busLineList.stream().map(BusLine::getBusLineID).collect(Collectors.toList());
                                 if (!busIDList.contains(id)) {
                                     System.out.println("\nMÃ TUYẾN VỪA NHẬP HIỆN KHÔNG TỒN TẠI TRONG DANH SÁCH!!! \n\n" +
                                             " ----->> Mời chọn [3] để thêm tuyến xe buýt mới. " +
