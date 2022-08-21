@@ -9,8 +9,6 @@ import java.util.*;
 public class BusDriverService {
 
     static List<BusDriver> busDriverList = new ArrayList<>();
-    static List<BusLine> busLineList = new ArrayList<>();
-    static List<Assignments> assignmentsList = new ArrayList<>();
 
 
     public static void inputNewBusDriver() {
@@ -29,7 +27,7 @@ public class BusDriverService {
                 BusDriver busDriver = new BusDriver(name, address, phone);
                 busDriver.inputDrivingSkill();
                 busDriverList.add(busDriver);
-//                Assignments assignments = new Assignments(busDriver); //tạo liên kết dữ liệu
+//                Assignments assignments = new Assignments(busDriver, ); //tạo liên kết dữ liệu
 //                AssignmentsService.assignmentsList.add(assignments);
 
             }
@@ -50,5 +48,14 @@ public class BusDriverService {
             busDriverList.forEach(busDriver -> System.out.println(busDriver.toString()));
         }
         //}
+
+    }
+    public static BusDriver findBusDriver(String name) {
+        BusDriver busDriver = null;
+        for (BusDriver i : busDriverList) {
+            if (i.getName() == name)
+                busDriver = i;
+        }
+        return busDriver;
     }
 }

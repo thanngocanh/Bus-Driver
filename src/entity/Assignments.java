@@ -10,18 +10,15 @@ public class Assignments {
     List<BusDriver> busDriverList = new ArrayList<>();
     List<BusLine> busLineList = new ArrayList<>();
 
-    private BusDriver busDriver;
-    private BusLine busLines;
+    private String busDriver;
+    private int busLines;
     private int turnsNumber;
 
 
-    public Assignments(BusDriver busDriver, BusLine busLines, int turnsNumber) {
+    public Assignments(String busDriver, int busLines, int turnsNumber) {
         this.busDriver = busDriver;
         this.busLines = busLines;
         this.turnsNumber = turnsNumber;
-    }
-
-    public Assignments(String name, int id, int turnsNumber) {
     }
 
     public List<BusDriver> getBusDriverList() {
@@ -40,19 +37,19 @@ public class Assignments {
         this.busLineList = busLineList;
     }
 
-    public BusDriver getBusDriver() {
+    public String getBusDriver() {
         return busDriver;
     }
 
-    public void setBusDriver(BusDriver busDriver) {
+    public void setBusDriver(String busDriver) {
         this.busDriver = busDriver;
     }
 
-    public BusLine getBusLines() {
+    public int getBusLines() {
         return busLines;
     }
 
-    public void setBusLines(BusLine busLines) {
+    public void setBusLines(int busLines) {
         this.busLines = busLines;
     }
 

@@ -14,6 +14,9 @@ import java.util.stream.Collectors;
 public class AssignmentsService {
 
     static List<Assignments> assignmentsList = new ArrayList<>();
+    static List<BusDriver> busDriverList = new ArrayList<>();
+
+    static List<BusLine> busLineList = new ArrayList<>();
 
     public static void addAssignments() {
         if (BusDriverService.busDriverList.isEmpty() || BusLineService.busLineList.isEmpty()) {
@@ -40,15 +43,13 @@ public class AssignmentsService {
             for (int i = 0; i < busDriverNumber; i++) {
                 System.out.println("\nMời nhập tên tài xế: ");
                 String name = new Scanner(System.in).nextLine();
-                List<String> driverNameList = assignmentsList.stream()
-                        .map(x -> x.getBusDriver().getName()).collect(Collectors.toList());
+                Set<String> driverNameList = busDriverList.stream().map(BusDriver::getName).collect(Collectors.toSet());
                 if (!driverNameList.contains(name)) {
                     System.out.println("\nTÊN TÀI XẾ VỪA NHẬP HIỆN KHÔNG TỒN TẠI TRONG DANH SÁCH!!! \n\n" +
                             " ----->> Mời chọn [1] để thêm danh sách tài xế. " +
                             "Hoặc nhập lại tên tài xế khác hiện đang có trong danh sách.");
-                    addAssignments();
-                }
-                System.out.print("Mời nhập số tuyến cần phân công hôm nay cho tài xế _" + name + "_: ");
+                } else {
+                System.out.print("Mời nhập số tuyến cần phân công hôm nay cho tài xế _" + name + "_: ");}
                 int busLineNumber = 0;
                 do {
                     try {
@@ -65,18 +66,16 @@ public class AssignmentsService {
                             "Mời nhập lại: ");
                 } while (true);
                 for (int j = 0; j < busLineNumber; j++) {
-                    for (Assignments assignments : assignmentsList) {
-                        if (name.equalsIgnoreCase(assignments.getBusDriver().getName())) {
+                    for (BusDriver busDriver : busDriverList) {
+                        if (name.equalsIgnoreCase(busDriver.getName())) {
                             System.out.println("Mời nhập mã tuyến: ");
                             try {
                                 int id = new Scanner(System.in).nextInt();
-                                List<Integer> busIDList = BusLineService.busLineList.stream()
-                                        .map(BusLine::getBusLineID).collect(Collectors.toList());
+                                Set<Integer> busIDList = busLineList.stream().map(BusLine::getBusLineID).collect(Collectors.toSet());
                                 if (!busIDList.contains(id)) {
                                     System.out.println("\nMÃ TUYẾN VỪA NHẬP HIỆN KHÔNG TỒN TẠI TRONG DANH SÁCH!!! \n\n" +
                                             " ----->> Mời chọn [3] để thêm tuyến xe buýt mới. " +
                                             "Hoặc nhập lại mã tuyến khác hiện đang có trong danh sách.");
-                                    addAssignments();
                                 }
                                 int turnsNumber = 0;
                                 do {
@@ -96,7 +95,7 @@ public class AssignmentsService {
                                 } while (true);
                                 for (int k = 0; k < turnsNumber; k++) {
                                     BusLine busLine = BusLineService.findBusLine(id);
-                                    assignments.getBusLineList().add(busLine);
+                                    busLineList.add(busLine);
                                     Assignments driverAssignments = new Assignments(name, id, turnsNumber);
                                     assignmentsList.add(driverAssignments);
                                 }
