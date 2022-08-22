@@ -49,6 +49,7 @@ public class AssignmentsService {
                             " ----->> Mời chọn [1] để thêm danh sách tài xế. " +
                             "Hoặc nhập lại tên tài xế khác hiện đang có trong danh sách.");
                 } else {
+                BusDriver busDriver = BusDriverService.findDriverName(name);
                 System.out.print("Mời nhập số tuyến cần phân công hôm nay cho tài xế _" + name + "_: ");}
                 int busLineNumber = 0;
                 do {

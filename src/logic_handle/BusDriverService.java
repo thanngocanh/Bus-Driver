@@ -50,7 +50,7 @@ public class BusDriverService {
         //}
 
     }
-    public static BusDriver findBusDriver(String name) {
+    public static BusDriver findDriverName(String name) {
         BusDriver busDriver = null;
         for (BusDriver i : busDriverList) {
             if (i.getName() == name)
