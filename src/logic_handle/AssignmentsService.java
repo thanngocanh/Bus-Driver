@@ -77,6 +77,8 @@ public class AssignmentsService {
                                             " ----->> Mời chọn [3] để thêm tuyến xe buýt mới. " +
                                             "Hoặc nhập lại mã tuyến khác hiện đang có trong danh sách.");
                                 }
+                                BusLine busLine = BusLineService.findBusLine(id);
+                                busLineList.add(busLine);
                                 int turnsNumber = 0;
                                 do {
                                     try {
@@ -94,8 +96,6 @@ public class AssignmentsService {
                                             "Phải nhập lại rồi!!");
                                 } while (true);
                                 for (int k = 0; k < turnsNumber; k++) {
-                                    BusLine busLine = BusLineService.findBusLine(id);
-                                    busLineList.add(busLine);
                                     Assignments driverAssignments = new Assignments(name, id, turnsNumber);
                                     assignmentsList.add(driverAssignments);
                                 }
