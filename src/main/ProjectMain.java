@@ -83,10 +83,10 @@ public class ProjectMain {
         System.out.println("2. Hiển thị danh sách tài xế hiện tại.");
         System.out.println("3. Nhập danh sách tuyến xe buýt mới.");
         System.out.println("4. Hiển thị danh sách tuyến xe buýt hiện tại.");
-        System.out.println("5. Nhập bảng phân công cho tài xế.");
-        System.out.println("6. Hiển thị bảng phân công đã đăng kí");
-        System.out.println("7. Sắp xếp danh sách phân công.");
-        System.out.println("8. Hiển thị bảng kê tổng khoảng cách chạy xe trong ngày của mỗi lái xe.");
+        System.out.println("5. Nhập bảng phân công cho tài xế. _Chưa hoàn thành_ ");
+        System.out.println("6. Hiển thị bảng phân công đã đăng kí. _Chưa hoàn thành_");
+        System.out.println("7. Sắp xếp danh sách phân công. _Chưa hoàn thành_");
+        System.out.println("8. Hiển thị bảng kê tổng khoảng cách chạy xe trong ngày của mỗi lái xe. _Chưa hoàn thành_");
         System.out.println("9. Thoát khỏi ứng dụng.");
     }
 
